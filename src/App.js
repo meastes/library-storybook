@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './App.module.scss';
 import ContentWrapper from './components/ContentWrapper';
+import Description from './components/Description';
 import Hero from './components/Hero';
 
 class App extends Component {
@@ -10,7 +11,10 @@ class App extends Component {
         <header>
           <Hero />
         </header>
-        <ContentWrapper>Content Here</ContentWrapper>
+        <main>
+          <Description />
+          <ContentWrapper>Content Here</ContentWrapper>
+        </main>
       </div>
     );
   }
