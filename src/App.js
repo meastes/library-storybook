@@ -1,21 +1,30 @@
-import React, { Component } from 'react';
-import './App.css';
-import logo from './logo.svg';
+import { createGenerateClassName, jssPreset } from '@material-ui/core/styles';
+import { create } from 'jss';
+import React from 'react';
+import JssProvider from 'react-jss/lib/JssProvider';
+import styles from './App.module.scss';
+import BookSearch from './components/BookSearch/BookSearch';
+import ContentWrapper from './components/ContentWrapper';
+import Description from './components/Description';
+import Hero from './components/Hero';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+// Ensures JSS is inserted first to allow overriding JSS styles
+const generateClassName = createGenerateClassName();
+const jss = create(jssPreset());
+jss.options.insertionPoint = document.getElementById('jss-insertion-point');
 
-export default App;
+export default () => (
+  <JssProvider jss={jss} generateClassName={generateClassName}>
+    <div className={styles.app}>
+      <header>
+        <Hero />
+      </header>
+      <main className={styles.main}>
+        <Description />
+        <ContentWrapper>
+          <BookSearch />
+        </ContentWrapper>
+      </main>
+    </div>
+  </JssProvider>
+);
