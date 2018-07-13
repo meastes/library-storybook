@@ -1,9 +1,12 @@
 import React from 'react';
-import { Button, TextField } from '../../../node_modules/@material-ui/core';
+import { Button, TextField, Typography } from '../../../node_modules/@material-ui/core';
 import styles from './BookSearch.module.scss';
 
 export default () => (
   <form>
+    <Typography component="h2" variant="headline">
+      Book Search
+    </Typography>
     <div className={styles.fields}>
       <TextField label="Title" />
       <TextField label="Author" />
