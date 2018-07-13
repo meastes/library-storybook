@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './App.module.scss';
+import BookSearch from './components/BookSearch/BookSearch';
 import ContentWrapper from './components/ContentWrapper';
 import Description from './components/Description';
 import Hero from './components/Hero';
@@ -13,7 +14,9 @@ class App extends Component {
         </header>
         <main>
           <Description />
-          <ContentWrapper>Content Here</ContentWrapper>
+          <ContentWrapper>
+            <BookSearch />
+          </ContentWrapper>
         </main>
       </div>
     );
