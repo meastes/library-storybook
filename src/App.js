@@ -12,7 +12,7 @@ class App extends Component {
         <header>
           <Hero />
         </header>
-        <main>
+        <main className={styles.main}>
           <Description />
           <ContentWrapper>
             <BookSearch />
