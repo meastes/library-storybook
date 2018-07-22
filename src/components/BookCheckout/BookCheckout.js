@@ -1,8 +1,9 @@
 import { Button, Modal, Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './BookCheckout.module.scss';
 
-export default ({ modalOpen, book, handleModalClose }) => {
+const BookCheckout = ({ modalOpen, book, handleModalClose }) => {
   return (
     <Modal
       open={modalOpen}
@@ -31,3 +32,11 @@ export default ({ modalOpen, book, handleModalClose }) => {
     </Modal>
   )
 };
+
+BookCheckout.propTypes = {
+  modalOpen: PropTypes.bool,
+  book: PropTypes.object,
+  handleModalClose: PropTypes.func,
+};
+
+export default BookCheckout;
