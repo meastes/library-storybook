@@ -67,7 +67,13 @@ export default class App extends React.Component {
             <Description />
             <ContentWrapper>
               <BookSearch onSearch={this.onSearch} />
-              <ResultsTable results={this.state.results} onCheckout={this.onCheckout} modalOpen={this.state.modalOpen} activeBook={this.state.activeBook} handleModalClose={this.handleModalClose} />
+              <ResultsTable
+                results={this.state.results}
+                onCheckout={this.onCheckout}
+                modalOpen={this.state.modalOpen}
+                activeBook={this.state.activeBook}
+                handleModalClose={this.handleModalClose}
+              />
             </ContentWrapper>
           </main>
           <footer>

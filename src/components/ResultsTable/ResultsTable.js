@@ -33,7 +33,11 @@ export default ({ results, onCheckout, modalOpen, activeBook, handleModalClose }
         </TableBody>
       </Table>
       {activeBook ? (
-        <BookCheckout modalOpen={modalOpen} book={activeBook} handleModalClose={() => handleModalClose()} />
+        <BookCheckout
+          modalOpen={modalOpen}
+          book={activeBook}
+          handleModalClose={() => handleModalClose()}
+        />
       ) : null}
     </React.Fragment>
   ) : null;
