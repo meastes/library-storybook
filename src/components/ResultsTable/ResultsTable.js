@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 
-export default ({ results }) =>
+export default ({ results, onCheckout }) =>
   results ? (
     <React.Fragment>
       <Typography component="h2" variant="headline">
@@ -31,7 +31,7 @@ export default ({ results }) =>
               <TableCell>{book.author}</TableCell>
               <TableCell>{book.isbn}</TableCell>
               <TableCell>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={() => onCheckout(book)}>
                   Checkout
                 </Button>
               </TableCell>

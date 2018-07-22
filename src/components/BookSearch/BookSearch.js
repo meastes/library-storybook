@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './BookSearch.module.scss';
 
 export default ({ onSearch }) => (
-  <form onSubmit={onSearch}>
+  <form method="get" onSubmit={onSearch}>
     <Typography component="h2" variant="headline">
       Book Search
     </Typography>

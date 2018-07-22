@@ -20,6 +20,16 @@ const mockResults = [
     author: 'J.K. Rowling',
     isbn: '0439708184',
   },
+  {
+    title: 'Harry Potter and The Chamber Of Secrets',
+    author: 'J.K. Rowling',
+    isbn: '0439064872',
+  },
+  {
+    title: 'Harry Potter and the Prisoner of Azkaban',
+    author: 'J.K. Rowling',
+    isbn: '0439136369',
+  },
 ];
 
 export default class App extends React.Component {
@@ -29,6 +39,9 @@ export default class App extends React.Component {
   onSearch = (event) => {
     event.preventDefault();
     this.setState({ results: mockResults });
+  };
+  onCheckout = (book) => {
+    // TODO Open checkout modal
   };
   render() {
     return (
@@ -41,7 +54,7 @@ export default class App extends React.Component {
             <Description />
             <ContentWrapper>
               <BookSearch onSearch={this.onSearch} />
-              <ResultsTable results={this.state.results} />
+              <ResultsTable results={this.state.results} onCheckout={this.onCheckout} />
             </ContentWrapper>
           </main>
         </div>
