@@ -1,8 +1,9 @@
 import { Button, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React from 'react';
 import BookCheckout from '../BookCheckout';
 
-export default ({ results, onCheckout, modalOpen, activeBook, handleModalClose }) =>
+const ResultsTable = ({ results, onCheckout, modalOpen, activeBook, handleModalClose }) =>
   results ? (
     <React.Fragment>
       <Typography component="h2" variant="headline">
@@ -41,3 +42,13 @@ export default ({ results, onCheckout, modalOpen, activeBook, handleModalClose }
       ) : null}
     </React.Fragment>
   ) : null;
+
+ResultsTable.propTypes = {
+  results: PropTypes.array,
+  onCheckout: PropTypes.func,
+  modalOpen: PropTypes.bool,
+  activeBook: PropTypes.object,
+  handleModalClose: PropTypes.func,
+};
+
+export default ResultsTable;
