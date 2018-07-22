@@ -1,4 +1,10 @@
-import { createGenerateClassName, jssPreset } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import {
+  createGenerateClassName,
+  createMuiTheme,
+  jssPreset,
+  MuiThemeProvider,
+} from '@material-ui/core/styles';
 import { create } from 'jss';
 import React from 'react';
 import JssProvider from 'react-jss/lib/JssProvider';
@@ -6,6 +12,7 @@ import styles from './App.module.scss';
 import BookSearch from './components/BookSearch/BookSearch';
 import ContentWrapper from './components/ContentWrapper';
 import Description from './components/Description';
+import Footer from './components/Footer';
 import Hero from './components/Hero';
 import ResultsTable from './components/ResultsTable/ResultsTable';
 
@@ -32,6 +39,12 @@ const mockResults = [
   },
 ];
 
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+  },
+});
+
 export default class App extends React.Component {
   state = {
     results: null,
@@ -46,7 +59,7 @@ export default class App extends React.Component {
   render() {
     return (
       <JssProvider jss={jss} generateClassName={generateClassName}>
-        <div className={styles.app}>
+        <MuiThemeProvider theme={theme}>
           <header>
             <Hero />
           </header>
@@ -57,7 +70,10 @@ export default class App extends React.Component {
               <ResultsTable results={this.state.results} onCheckout={this.onCheckout} />
             </ContentWrapper>
           </main>
-        </div>
+          <footer>
+            <Footer />
+          </footer>
+        </MuiThemeProvider>
       </JssProvider>
     );
   }
