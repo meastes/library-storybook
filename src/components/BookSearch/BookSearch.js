@@ -1,9 +1,9 @@
+import { Button, TextField, Typography } from '@material-ui/core';
 import React from 'react';
-import { Button, TextField, Typography } from '../../../node_modules/@material-ui/core';
 import styles from './BookSearch.module.scss';
 
-export default () => (
-  <form>
+export default ({ onSearch }) => (
+  <form method="get" onSubmit={onSearch}>
     <Typography component="h2" variant="headline">
       Book Search
     </Typography>
@@ -13,7 +13,7 @@ export default () => (
       <TextField label="ISBN" />
     </div>
     <div className={styles.footer}>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" type="submit">
         Search
       </Button>
     </div>

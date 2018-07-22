@@ -7,24 +7,58 @@ import BookSearch from './components/BookSearch/BookSearch';
 import ContentWrapper from './components/ContentWrapper';
 import Description from './components/Description';
 import Hero from './components/Hero';
+import ResultsTable from './components/ResultsTable/ResultsTable';
 
 // Ensures JSS is inserted first to allow overriding JSS styles
 const generateClassName = createGenerateClassName();
 const jss = create(jssPreset());
 jss.options.insertionPoint = document.getElementById('jss-insertion-point');
 
-export default () => (
-  <JssProvider jss={jss} generateClassName={generateClassName}>
-    <div className={styles.app}>
-      <header>
-        <Hero />
-      </header>
-      <main className={styles.main}>
-        <Description />
-        <ContentWrapper>
-          <BookSearch />
-        </ContentWrapper>
-      </main>
-    </div>
-  </JssProvider>
-);
+const mockResults = [
+  {
+    title: "Harry Potter and the Sorcerer's Stone",
+    author: 'J.K. Rowling',
+    isbn: '0439708184',
+  },
+  {
+    title: 'Harry Potter and The Chamber Of Secrets',
+    author: 'J.K. Rowling',
+    isbn: '0439064872',
+  },
+  {
+    title: 'Harry Potter and the Prisoner of Azkaban',
+    author: 'J.K. Rowling',
+    isbn: '0439136369',
+  },
+];
+
+export default class App extends React.Component {
+  state = {
+    results: null,
+  };
+  onSearch = (event) => {
+    event.preventDefault();
+    this.setState({ results: mockResults });
+  };
+  onCheckout = (book) => {
+    // TODO Open checkout modal
+  };
+  render() {
+    return (
+      <JssProvider jss={jss} generateClassName={generateClassName}>
+        <div className={styles.app}>
+          <header>
+            <Hero />
+          </header>
+          <main className={styles.main}>
+            <Description />
+            <ContentWrapper>
+              <BookSearch onSearch={this.onSearch} />
+              <ResultsTable results={this.state.results} onCheckout={this.onCheckout} />
+            </ContentWrapper>
+          </main>
+        </div>
+      </JssProvider>
+    );
+  }
+}
