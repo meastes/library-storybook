@@ -1,10 +1,5 @@
 import blue from '@material-ui/core/colors/blue';
-import {
-  createGenerateClassName,
-  createMuiTheme,
-  jssPreset,
-  MuiThemeProvider,
-} from '@material-ui/core/styles';
+import { MuiThemeProvider, createGenerateClassName, createMuiTheme, jssPreset } from '@material-ui/core/styles';
 import { create } from 'jss';
 import React from 'react';
 import JssProvider from 'react-jss/lib/JssProvider';
@@ -48,13 +43,18 @@ const theme = createMuiTheme({
 export default class App extends React.Component {
   state = {
     results: null,
+    activeBook: null,
+    modalOpen: false
   };
   onSearch = (event) => {
     event.preventDefault();
     this.setState({ results: mockResults });
   };
   onCheckout = (book) => {
-    // TODO Open checkout modal
+    this.setState({ modalOpen: true, activeBook: book });
+  };
+  handleModalClose = () => {
+    this.setState({ modalOpen: false });
   };
   render() {
     return (
@@ -67,7 +67,7 @@ export default class App extends React.Component {
             <Description />
             <ContentWrapper>
               <BookSearch onSearch={this.onSearch} />
-              <ResultsTable results={this.state.results} onCheckout={this.onCheckout} />
+              <ResultsTable results={this.state.results} onCheckout={this.onCheckout} modalOpen={this.state.modalOpen} activeBook={this.state.activeBook} handleModalClose={this.handleModalClose} />
             </ContentWrapper>
           </main>
           <footer>
