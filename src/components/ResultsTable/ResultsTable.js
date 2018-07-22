@@ -1,15 +1,8 @@
-import {
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Typography,
-} from '@material-ui/core';
+import { Button, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
 import React from 'react';
+import BookCheckout from '../BookCheckout';
 
-export default ({ results, onCheckout }) =>
+export default ({ results, onCheckout, modalOpen, activeBook, handleModalClose }) =>
   results ? (
     <React.Fragment>
       <Typography component="h2" variant="headline">
@@ -26,7 +19,7 @@ export default ({ results, onCheckout }) =>
         </TableHead>
         <TableBody>
           {results.map((book) => (
-            <TableRow>
+            <TableRow key={book.isbn}>
               <TableCell>{book.title}</TableCell>
               <TableCell>{book.author}</TableCell>
               <TableCell>{book.isbn}</TableCell>
@@ -39,5 +32,12 @@ export default ({ results, onCheckout }) =>
           ))}
         </TableBody>
       </Table>
+      {activeBook ? (
+        <BookCheckout
+          modalOpen={modalOpen}
+          book={activeBook}
+          handleModalClose={() => handleModalClose()}
+        />
+      ) : null}
     </React.Fragment>
   ) : null;

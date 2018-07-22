@@ -1,0 +1,22 @@
+.modal {
+  width: 350px;
+  margin: 250px auto;
+  padding: 30px;
+  background-color: white;
+}
+
+.modalTitle {
+  margin-bottom: 15px;
+}
+
+.modalBody {
+  margin-bottom: 15px;
+}
+
+.bookTitle {
+  font-weight: bold;
+}
+
+.modalFooter button+button{
+  margin-left: 10px;
+}
