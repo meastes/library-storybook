@@ -16,7 +16,9 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
     "ajv": "^6.0.0",
@@ -24,6 +26,12 @@
     "node-sass": "^4.9.2",
     "react-app-rewire-css-modules": "github:codebandits/react-app-rewire-css-modules",
     "react-app-rewired": "^1.5.2",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "@storybook/react": "^3.4.8",
+    "@storybook/addon-actions": "^3.4.8",
+    "@storybook/addon-links": "^3.4.8",
+    "@storybook/addons": "^3.4.8",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0"
   }
 }
