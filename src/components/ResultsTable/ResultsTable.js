@@ -25,16 +25,18 @@ export default ({ results }) =>
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell>Harry Potter and the Sorcerer's Stone</TableCell>
-            <TableCell>J.K. Rowling</TableCell>
-            <TableCell>0439708184</TableCell>
-            <TableCell>
-              <Button variant="contained" color="primary">
-                Checkout
-              </Button>
-            </TableCell>
-          </TableRow>
+          {results.map((book) => (
+            <TableRow>
+              <TableCell>{book.title}</TableCell>
+              <TableCell>{book.author}</TableCell>
+              <TableCell>{book.isbn}</TableCell>
+              <TableCell>
+                <Button variant="contained" color="primary">
+                  Checkout
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </React.Fragment>
