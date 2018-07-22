@@ -1,5 +1,5 @@
+import { Button, TextField, Typography } from '@material-ui/core';
 import React from 'react';
-import { Button, TextField, Typography } from '../../../node_modules/@material-ui/core';
 import styles from './BookSearch.module.scss';
 
 export default () => (

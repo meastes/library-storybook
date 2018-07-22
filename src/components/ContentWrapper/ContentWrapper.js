@@ -1,4 +1,4 @@
-import Paper from '@material-ui/core/Paper';
+import { Paper } from '@material-ui/core';
 import React from 'react';
 import styles from './ContentWrapper.module.scss';
 

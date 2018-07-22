@@ -7,6 +7,7 @@ import BookSearch from './components/BookSearch/BookSearch';
 import ContentWrapper from './components/ContentWrapper';
 import Description from './components/Description';
 import Hero from './components/Hero';
+import ResultsTable from './components/ResultsTable/ResultsTable';
 
 // Ensures JSS is inserted first to allow overriding JSS styles
 const generateClassName = createGenerateClassName();
@@ -23,6 +24,7 @@ export default () => (
         <Description />
         <ContentWrapper>
           <BookSearch />
+          <ResultsTable />
         </ContentWrapper>
       </main>
     </div>
