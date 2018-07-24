@@ -28,8 +28,7 @@ storybook.add(
   '-Info-',
   withInfo({
     inline: true,
-    propTables: [ResultsTable],
-    text: 'The Results Table displays a list of books that match query criteria.'
+    text: 'The Results Table displays a list of books that match query criteria.',
   })(() => (
     <ResultsTable
       results={mockResults}
@@ -38,15 +37,18 @@ storybook.add(
       activeBook={null}
       onCheckout={action('Close Modal')}
     />
-  ))
+  )),
 );
 
-storybook.add('Basic', withInfo({ propTables: [ResultsTable] })(() => (
-  <ResultsTable
-    results={mockResults}
-    onCheckout={action('Checkout')}
-    modalOpen={false}
-    activeBook={null}
-    onCheckout={action('Close Modal')}
-  />
-)));
+storybook.add(
+  'Basic',
+  withInfo()(() => (
+    <ResultsTable
+      results={mockResults}
+      onCheckout={action('Checkout')}
+      modalOpen={false}
+      activeBook={null}
+      onCheckout={action('Close Modal')}
+    />
+  )),
+);
