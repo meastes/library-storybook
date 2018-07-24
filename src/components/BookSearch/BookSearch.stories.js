@@ -10,13 +10,8 @@ storybook.add(
   '-Info-',
   withInfo({
     inline: true,
-    propTables: [BookSearch],
-    text: 'BookSearch is a form used to search the library\'s catalogs'
-  })(() => (
-    <BookSearch onSearch={action('Search')} />
-  ))
+    text: "BookSearch is a form used to search the library's catalogs",
+  })(() => <BookSearch onSearch={action('Search')} />),
 );
 
-storybook.add('Basic', withInfo({ propTables: [BookSearch] })(() => (
-  <BookSearch onSearch={action('Search')} />
-)));
+storybook.add('Basic', withInfo()(() => <BookSearch onSearch={action('Search')} />));

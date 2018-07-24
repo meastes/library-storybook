@@ -1,4 +1,12 @@
-import { Button, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
+import {
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
 import BookCheckout from '../BookCheckout';
@@ -35,7 +43,7 @@ const ResultsTable = ({ results, onCheckout, modalOpen, activeBook, handleModalC
       </Table>
       {activeBook ? (
         <BookCheckout
-          modalOpen={modalOpen}
+          isModalOpen={modalOpen}
           book={activeBook}
           handleModalClose={() => handleModalClose()}
         />
@@ -44,8 +52,14 @@ const ResultsTable = ({ results, onCheckout, modalOpen, activeBook, handleModalC
   ) : null;
 
 ResultsTable.propTypes = {
+  /**
+   * List of books from the current search.
+   */
   results: PropTypes.array,
-  onCheckout: PropTypes.func,
+  /**
+   * Handler function to call when a book is checked out.
+   */
+  onCheckout: PropTypes.func.isRequired,
   modalOpen: PropTypes.bool,
   activeBook: PropTypes.object,
   handleModalClose: PropTypes.func,
