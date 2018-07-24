@@ -1,15 +1,21 @@
 import blue from '@material-ui/core/colors/blue';
-import { MuiThemeProvider, createGenerateClassName, createMuiTheme, jssPreset } from '@material-ui/core/styles';
+import {
+  createGenerateClassName,
+  createMuiTheme,
+  jssPreset,
+  MuiThemeProvider,
+} from '@material-ui/core/styles';
 import { create } from 'jss';
 import React from 'react';
 import JssProvider from 'react-jss/lib/JssProvider';
 import styles from './App.module.scss';
+import BookCheckout from './components/BookCheckout';
 import BookSearch from './components/BookSearch/BookSearch';
 import ContentWrapper from './components/ContentWrapper';
 import Description from './components/Description';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
-import ResultsTable from './components/ResultsTable/ResultsTable';
+import ResultsTable from './components/ResultsTable';
 
 // Ensures JSS is inserted first to allow overriding JSS styles
 const generateClassName = createGenerateClassName();
@@ -44,7 +50,7 @@ export default class App extends React.Component {
   state = {
     results: null,
     activeBook: null,
-    modalOpen: false
+    modalOpen: false,
   };
   onSearch = (event) => {
     event.preventDefault();
@@ -74,6 +80,13 @@ export default class App extends React.Component {
                 activeBook={this.state.activeBook}
                 handleModalClose={this.handleModalClose}
               />
+              {this.state.activeBook ? (
+                <BookCheckout
+                  isModalOpen={this.state.modalOpen}
+                  book={this.state.activeBook}
+                  handleModalClose={this.handleModalClose}
+                />
+              ) : null}
             </ContentWrapper>
           </main>
           <footer>

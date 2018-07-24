@@ -9,9 +9,8 @@ import {
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import BookCheckout from '../BookCheckout';
 
-const ResultsTable = ({ results, onCheckout, modalOpen, activeBook, handleModalClose }) =>
+const ResultsTable = ({ results, onCheckout }) =>
   results ? (
     <React.Fragment>
       <Typography component="h2" variant="headline">
@@ -41,13 +40,6 @@ const ResultsTable = ({ results, onCheckout, modalOpen, activeBook, handleModalC
           ))}
         </TableBody>
       </Table>
-      {activeBook ? (
-        <BookCheckout
-          isModalOpen={modalOpen}
-          book={activeBook}
-          handleModalClose={() => handleModalClose()}
-        />
-      ) : null}
     </React.Fragment>
   ) : null;
 
@@ -55,14 +47,17 @@ ResultsTable.propTypes = {
   /**
    * List of books from the current search.
    */
-  results: PropTypes.array,
+  results: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      isbn: PropTypes.string.isRequired,
+    }),
+  ),
   /**
    * Handler function to call when a book is checked out.
    */
   onCheckout: PropTypes.func.isRequired,
-  modalOpen: PropTypes.bool,
-  activeBook: PropTypes.object,
-  handleModalClose: PropTypes.func,
 };
 
 export default ResultsTable;
