@@ -1,8 +1,20 @@
 import blue from '@material-ui/core/colors/blue';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import {
+  MuiThemeProvider,
+  createGenerateClassName,
+  createMuiTheme,
+  jssPreset,
+} from '@material-ui/core/styles';
 import { setOptions } from '@storybook/addon-options';
 import { addDecorator, configure as configureStories } from '@storybook/react';
+import { create } from 'jss';
 import React from 'react';
+import JssProvider from 'react-jss/lib/JssProvider';
+
+// Ensures JSS is inserted first to allow overriding JSS styles
+const generateClassName = createGenerateClassName();
+const jss = create(jssPreset());
+jss.options.insertionPoint = document.getElementById('jss-insertion-point');
 
 const theme = createMuiTheme({
   palette: {
@@ -27,7 +39,11 @@ function configureAddOns() {
 
 function configurePage() {
   addDecorator((story) => {
-    return <MuiThemeProvider theme={theme}>{story()}</MuiThemeProvider>;
+    return (
+      <JssProvider jss={jss} generateClassName={generateClassName}>
+        <MuiThemeProvider theme={theme}>{story()}</MuiThemeProvider>
+      </JssProvider>
+    );
   });
 }
 
