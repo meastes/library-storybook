@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './BookCheckout.module.scss';
 
-const BookCheckout = ({ modalOpen, book, handleModalClose }) => {
+const BookCheckout = ({ isModalOpen = true, book, handleModalClose }) => {
   return (
-    <Modal
-      open={modalOpen}
-      onClose={handleModalClose}
-    >
+    <Modal open={isModalOpen} onClose={handleModalClose}>
       <div className={styles.modal}>
         <div className={styles.modalTitle}>
           <Typography variant="title" id="modal-title">
@@ -30,13 +27,24 @@ const BookCheckout = ({ modalOpen, book, handleModalClose }) => {
         </div>
       </div>
     </Modal>
-  )
+  );
 };
 
 BookCheckout.propTypes = {
-  modalOpen: PropTypes.bool,
-  book: PropTypes.object,
-  handleModalClose: PropTypes.func,
+  /**
+   * Flag to indicate whether the modal should be displayed as open.
+   */
+  isModalOpen: PropTypes.bool,
+  /**
+   * Book that is being checked out.
+   */
+  book: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+  /**
+   * Handler function to call when a close has been requested by the modal.
+   */
+  handleModalClose: PropTypes.func.isRequired,
 };
 
 export default BookCheckout;

@@ -22,7 +22,10 @@ const BookSearch = ({ onSearch }) => (
 );
 
 BookSearch.propTypes = {
-  onSearch: PropTypes.func
+  /**
+   * Handler function to call when a search is executed.
+   */
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default BookSearch;

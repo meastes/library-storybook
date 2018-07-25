@@ -1,8 +1,7 @@
 import blue from '@material-ui/core/colors/blue';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { setOptions } from "@storybook/addon-options";
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { setOptions } from '@storybook/addon-options';
 import { addDecorator, configure as configureStories } from '@storybook/react';
-// import { setDefaults } from "@storybook/addon-info"
 import React from 'react';
 
 const theme = createMuiTheme({
@@ -22,19 +21,14 @@ function initialize() {
 function configureAddOns() {
   setOptions({
     name: 'Fun Library Name',
-    url: 'https://github.com/meastes/library-storybook'
+    url: 'https://github.com/meastes/library-storybook',
   });
 }
 
 function configurePage() {
   addDecorator((story) => {
-    return (
-      <MuiThemeProvider theme={theme}>
-        {story()}
-      </MuiThemeProvider>
-
-    )
-  })
+    return <MuiThemeProvider theme={theme}>{story()}</MuiThemeProvider>;
+  });
 }
 
 function loadStories() {

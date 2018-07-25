@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = (baseConfig, env, defaultConfig) => {
   defaultConfig.module.rules.push({
@@ -17,10 +17,10 @@ module.exports = (baseConfig, env, defaultConfig) => {
         loader: 'sass-loader',
       },
     ],
-    include: path.resolve(__dirname, "../")
+    include: path.resolve(__dirname, '../'),
   });
 
-  defaultConfig.resolve.extensions.push(".scss");
+  defaultConfig.resolve.extensions.push('.scss');
 
   return defaultConfig;
 };
