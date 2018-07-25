@@ -1,5 +1,6 @@
 import blue from '@material-ui/core/colors/blue';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { checkA11y } from '@storybook/addon-a11y';
 import { setOptions } from '@storybook/addon-options';
 import { addDecorator, configure as configureStories } from '@storybook/react';
 import React from 'react';
@@ -29,6 +30,7 @@ function configurePage() {
   addDecorator((story) => {
     return <MuiThemeProvider theme={theme}>{story()}</MuiThemeProvider>;
   });
+  addDecorator(checkA11y);
 }
 
 function loadStories() {
