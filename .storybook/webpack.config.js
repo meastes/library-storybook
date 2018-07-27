@@ -3,18 +3,36 @@ const path = require('path');
 module.exports = (baseConfig, env, defaultConfig) => {
   defaultConfig.module.rules.push({
     test: /\.scss$/,
-    use: [
+    oneOf: [
       {
-        loader: 'style-loader',
+        test: /\.module.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
       },
       {
-        loader: 'css-loader',
-        options: {
-          modules: true,
-        },
-      },
-      {
-        loader: 'sass-loader',
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
       },
     ],
     include: path.resolve(__dirname, '../'),
