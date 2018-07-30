@@ -1,9 +1,9 @@
 import blue from '@material-ui/core/colors/blue';
 import {
+  MuiThemeProvider,
   createGenerateClassName,
   createMuiTheme,
   jssPreset,
-  MuiThemeProvider,
 } from '@material-ui/core/styles';
 import { create } from 'jss';
 import React from 'react';
@@ -24,19 +24,34 @@ jss.options.insertionPoint = document.getElementById('jss-insertion-point');
 
 const mockResults = [
   {
-    title: "Harry Potter and the Sorcerer's Stone",
-    author: 'J.K. Rowling',
+    title: 'Tales of Beedle the Bard',
+    author: 'Beedle the Bard',
     isbn: '0439708184',
   },
   {
-    title: 'Harry Potter and The Chamber Of Secrets',
-    author: 'J.K. Rowling',
+    title: 'Quidditch Through the Ages',
+    author: 'Kennilworthy Whisp',
     isbn: '0439064872',
   },
   {
-    title: 'Harry Potter and the Prisoner of Azkaban',
-    author: 'J.K. Rowling',
+    title: 'Gadding with Ghouls',
+    author: 'Gilderoy Lockhart',
     isbn: '0439136369',
+  },
+  {
+    title: 'Fantastic Beasts and Where to Find Them',
+    author: 'Newton Scamander',
+    isbn: '0439975346',
+  },
+  {
+    title: 'Magical Water Plants of the Highland Lochs',
+    author: 'Hadrian Whittle',
+    isbn: '0439740217',
+  },
+  {
+    title: 'Cooking the Muggle Way',
+    author: 'Mordicus Egg',
+    isbn: '0439276401',
   },
 ];
 
