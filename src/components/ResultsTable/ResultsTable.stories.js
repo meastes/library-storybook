@@ -25,11 +25,8 @@ const mockResults = [
 const storybook = storiesOf('Results Table');
 
 storybook.add(
-  '-Info-',
-  withInfo({
-    inline: true,
-    text: 'The Results Table displays a list of books that match query criteria.',
-  })(() => (
+  'Basic',
+  withInfo()(() => (
     <ResultsTable
       results={mockResults}
       onCheckout={action('Checkout')}
@@ -41,8 +38,11 @@ storybook.add(
 );
 
 storybook.add(
-  'Basic',
-  withInfo()(() => (
+  '-Info-',
+  withInfo({
+    inline: true,
+    text: 'The Results Table displays a list of books that match query criteria.',
+  })(() => (
     <ResultsTable
       results={mockResults}
       onCheckout={action('Checkout')}

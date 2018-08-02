@@ -37,17 +37,17 @@ class ToggleabbleBookCheckout extends React.Component {
 const storybook = storiesOf('Book Checkout Modal');
 
 storybook.add(
+  'Basic',
+  withInfo()(() => (
+    <BookCheckout isModalOpen={true} book={book} handleModalClose={action('Close Modal')} />
+  )),
+);
+
+storybook.add(
   '-Info-',
   withInfo({
     inline: true,
     propTables: [BookCheckout],
     text: 'BookCheckout is a modal which prompts users to confirm a checkout request',
   })(() => <ToggleabbleBookCheckout book={book} handleModalClose={action('Close Modal')} />),
-);
-
-storybook.add(
-  'Basic',
-  withInfo()(() => (
-    <BookCheckout isModalOpen={true} book={book} handleModalClose={action('Close Modal')} />
-  )),
 );
