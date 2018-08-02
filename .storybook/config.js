@@ -1,9 +1,9 @@
 import blue from '@material-ui/core/colors/blue';
 import {
-  MuiThemeProvider,
   createGenerateClassName,
   createMuiTheme,
   jssPreset,
+  MuiThemeProvider,
 } from '@material-ui/core/styles';
 import { setOptions } from '@storybook/addon-options';
 import { addDecorator, configure as configureStories } from '@storybook/react';
@@ -32,7 +32,7 @@ function initialize() {
 
 function configureAddOns() {
   setOptions({
-    name: 'Fun Library Name',
+    name: "Madam Pince's Catalog",
     url: 'https://github.com/meastes/library-storybook',
   });
 }
