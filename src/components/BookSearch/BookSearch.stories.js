@@ -6,6 +6,8 @@ import BookSearch from './';
 
 const storybook = storiesOf('Book Search Form');
 
+storybook.add('Basic', withInfo()(() => <BookSearch onSearch={action('Search')} />));
+
 storybook.add(
   '-Info-',
   withInfo({
@@ -13,5 +15,3 @@ storybook.add(
     text: "BookSearch is a form used to search the library's catalogs",
   })(() => <BookSearch onSearch={action('Search')} />),
 );
-
-storybook.add('Basic', withInfo()(() => <BookSearch onSearch={action('Search')} />));
