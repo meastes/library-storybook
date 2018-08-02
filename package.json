@@ -33,7 +33,7 @@
     "gh-pages": "^1.2.0",
     "node-sass": "^4.9.2",
     "prop-types": "^15.6.2",
-    "react-app-rewire-css-modules": "github:codebandits/react-app-rewire-css-modules",
+    "react-app-rewire-css-modules": "https://github.com/codebandits/react-app-rewire-css-modules.git",
     "react-app-rewired": "^1.5.2",
     "sass-loader": "^6.0.6"
   }
