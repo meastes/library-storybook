@@ -53,7 +53,7 @@ ResultsTable.propTypes = {
       author: PropTypes.string.isRequired,
       isbn: PropTypes.string.isRequired,
     }),
-  ),
+  ).isRequired,
   /**
    * Handler function to call when a book is checked out.
    */
